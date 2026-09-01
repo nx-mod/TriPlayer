@@ -34,7 +34,7 @@ INCLUDES	:=	include build/hdrs ../Common/include libs/libTesla/include
 SOURCES		:=	source ../Common/source
 DATA		:=	data
 LIBS		:=  -lnx -lpng -lSQLite -lz
-LIBDIRS		:=	$(PORTLIBS) $(LIBNX) $(CURDIR)/../Common/libs/SQLite
+LIBDIRS		:=	$(PORTLIBS) $(LIBNX) $(CURDIR)/../../sqlite-nx
 
 #---------------------------------------------------------------------------------
 # Options for .nacp information

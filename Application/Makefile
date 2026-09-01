@@ -35,7 +35,7 @@ INCLUDES	:=	include ../Common/include ../Common/libs/minIni/minIni/dev ../Common
 SOURCES		:=	source	../Common/source
 ROMFS		:=	romfs
 LIBS		:=  -lAether -lTag -lSDL2_ttf -lSDL2_gfx -lSDL2_image -lSDL2 -lfreetype -lbz2 -lharfbuzz -lEGL -lglapi -ldrm_nouveau -lSplash -lcurl -lminIni -lmpg123 -lSQLite -lpng -ljpeg -lwebp -lzzip -lz -lnx
-LIBDIRS		:=	$(PORTLIBS) $(LIBNX) $(CURDIR)/libs/Aether $(CURDIR)/libs/json $(CURDIR)/../Common/libs/minIni $(CURDIR)/../Common/libs/SQLite $(CURDIR)/../Common/libs/splash $(CURDIR)/libs/TagLib
+LIBDIRS		:=	$(PORTLIBS) $(LIBNX) $(CURDIR)/libs/Aether $(CURDIR)/libs/json $(CURDIR)/../Common/libs/minIni $(CURDIR)/../../sqlite-nx $(CURDIR)/../Common/libs/splash $(CURDIR)/libs/TagLib
 
 #---------------------------------------------------------------------------------
 # Options for .nacp information

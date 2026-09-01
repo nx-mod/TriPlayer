@@ -34,7 +34,7 @@ INCLUDES	:=	include build/hdrs ../Common/include ../Common/libs/minIni/minIni/de
 SOURCES		:=	source 	../Common/source
 DATA		:=	data
 LIBS		:=	-lnx -lSQLite -lm -lmpg123 -lminIni
-LIBDIRS		:=	$(PORTLIBS) $(LIBNX) $(CURDIR)/../Common/libs/SQLite $(CURDIR)/../Common/libs/minIni
+LIBDIRS		:=	$(PORTLIBS) $(LIBNX) $(CURDIR)/../../sqlite-nx $(CURDIR)/../Common/libs/minIni
 
 #---------------------------------------------------------------------------------
 # Options for code generation
