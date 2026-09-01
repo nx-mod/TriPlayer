@@ -5,6 +5,7 @@ exefs/
 lib/
 /psd
 /sdcard
+*.zip
 *.elf
 *.nro
 *.nacp

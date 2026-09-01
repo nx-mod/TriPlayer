@@ -1,4 +1,4 @@
-.PHONY: all clean
+.PHONY: all clean dist
 
 #---------------------------------------------------------------------------------
 # TriPlayer version
@@ -47,6 +47,10 @@ all:
 
 	@echo -e '\033[1m>> Done! Copy ./sdcard to the root of your SD Card :)\033[0m'
 	@echo -e '\033[1m>> Note: sysmodule does NOT auto-start at boot by design -- launch it from the Application, or from sysmodules-overlay.\033[0m'
+
+dist: all
+	@rm -f TriPlayer.zip
+	@cd sdcard; zip -r ../TriPlayer.zip ./*; cd ../
 
 clean:
 	@echo -e '\033[1m>> Common (minIni)\033[0m'

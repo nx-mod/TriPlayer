@@ -25,6 +25,18 @@ STATUS=$?
 if [ $STATUS -eq 0 ] && [ "$TARGET" = "all" ]; then
     echo "== Build ok. Output in sdcard/ =="
     find sdcard -type f 2>/dev/null
+elif [ $STATUS -eq 0 ] && [ "$TARGET" = "dist" ] && [ -f TriPlayer.zip ]; then
+    echo "== Build ok. Output in sdcard/ =="
+    find sdcard -type f 2>/dev/null
+
+    ZIPS_DIR="$SCRIPT_DIR/../_ZIPS_"
+    SDCARD_DIR="$SCRIPT_DIR/../_SDCARD_"
+    mkdir -p "$ZIPS_DIR"
+    cp TriPlayer.zip "$ZIPS_DIR/TriPlayer-release.zip"
+    mkdir -p "$SDCARD_DIR"
+    cp -r sdcard/* "$SDCARD_DIR/"
+    echo "== Packaged: $ZIPS_DIR/TriPlayer-release.zip =="
+    echo "== Extracted onto: $SDCARD_DIR =="
 fi
 
 exit $STATUS
