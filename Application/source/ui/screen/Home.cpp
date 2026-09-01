@@ -7,6 +7,7 @@
 #include "ui/frame/Artist.hpp"
 #include "ui/frame/Artists.hpp"
 #include "ui/frame/ArtistInfo.hpp"
+#include "ui/frame/Pandora.hpp"
 #include "ui/frame/Playlist.hpp"
 #include "ui/frame/Playlists.hpp"
 #include "ui/frame/PlaylistInfo.hpp"
@@ -222,6 +223,10 @@ namespace Screen {
                 this->frame = new Frame::Search(this->app);
                 break;
 
+            case Frame::Type::Pandora:
+                this->frame = new Frame::Pandora(this->app);
+                break;
+
             case Frame::Type::Songs:
                 this->frame = new Frame::Songs(this->app);
                 break;
@@ -386,6 +391,10 @@ namespace Screen {
                 this->sideSearch->setActivated(true);
                 break;
 
+            case Frame::Type::Pandora:
+                this->sidePandora->setActivated(true);
+                break;
+
             case Frame::Type::Playlists:
             case Frame::Type::Playlist:
             case Frame::Type::PlaylistInfo:
@@ -420,6 +429,7 @@ namespace Screen {
 
     void Home::resetState() {
         // Deselect all side buttons
+        this->sidePandora->setActivated(false);
         this->sideSearch->setActivated(false);
         this->sidePlaylists->setActivated(false);
         this->sideSongs->setActivated(false);
@@ -510,7 +520,24 @@ namespace Screen {
         this->sideContainer->addElement(this->touchContainer);
 
         // Navigation list
-        this->sideSearch = new CustomElm::SideButton(10, 80, 290);
+        this->sidePandora = new CustomElm::SideButton(10, 80, 290);
+        this->sidePandora->setIcon(new Aether::Image(0, 0, "romfs:/icons/musicnote.png"));
+        this->sidePandora->setText("Pandora");
+        this->sidePandora->setActiveColour(this->app->theme()->accent());
+        this->sidePandora->setInactiveColour(this->app->theme()->FG());
+        this->sidePandora->onPress([this](){
+            if (this->frameType == Frame::Type::Pandora) {
+                this->returnElement(this->playerDim);
+                this->container->removeElement(this->frame);
+                this->frame = new Frame::Pandora(this->app);
+                this->finalizeState();
+            } else {
+                this->changeFrame(Frame::Type::Pandora, Frame::Action::Push);
+            }
+        });
+        this->sideContainer->addElement(this->sidePandora);
+
+        this->sideSearch = new CustomElm::SideButton(10, 150, 290);
         this->sideSearch->setIcon(new Aether::Image(0, 0, "romfs:/icons/search.png"));
         this->sideSearch->setText("Search.Search"_lang);
         this->sideSearch->setActiveColour(this->app->theme()->accent());

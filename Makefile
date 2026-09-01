@@ -15,6 +15,8 @@ all:
 	@$(MAKE) -s -C Common/libs/splash
 	@echo -e '\033[1m>> sqlite-nx\033[0m'
 	@$(MAKE) -s -C ../sqlite-nx
+	@echo -e '\033[1m>> libpiano-nx\033[0m'
+	@$(MAKE) -s -C ../libpiano-nx
 	@echo -e '\033[1m>> Application\033[0m'
 	@$(MAKE) -s -C Application/
 	@echo -e '\033[1m>> Overlay\033[0m'
@@ -59,6 +61,8 @@ clean:
 	@$(MAKE) -s -C Common/libs/splash clean
 	@echo -e '\033[1m>> sqlite-nx\033[0m'
 	@$(MAKE) -s -C ../sqlite-nx clean
+	@echo -e '\033[1m>> libpiano-nx\033[0m'
+	@$(MAKE) -s -C ../libpiano-nx clean
 	@echo -e '\033[1m>> Application\033[0m'
 	@$(MAKE) -s -C Application/ clean-all
 	@echo -e '\033[1m>> Overlay\033[0m'

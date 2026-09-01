@@ -40,6 +40,7 @@ namespace Screen {
             Aether::Container * touchContainer;
             Aether::Container * sideContainer;
             Aether::Rectangle * sideBg;
+            CustomElm::SideButton * sidePandora;
             CustomElm::SideButton * sideSearch;
             Aether::Rectangle * sideSeparator;
             CustomElm::SideButton * sidePlaylists;

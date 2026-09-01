@@ -28,6 +28,7 @@ namespace Frame {
         Artist,
         ArtistInfo,
         Search,
+        Pandora,
         Songs,
         SongInfo,
         Queue,

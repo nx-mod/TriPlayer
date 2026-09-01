@@ -34,8 +34,8 @@ TL_INCLUDES :=	$(shell find libs/TagLib/taglib/taglib -type d)
 INCLUDES	:=	include ../Common/include ../Common/libs/minIni/minIni/dev ../Common/libs/splash/splash/include libs/avir libs/dtl/dtl $(TL_INCLUDES)
 SOURCES		:=	source	../Common/source
 ROMFS		:=	romfs
-LIBS		:=  -lAether -lTag -lSDL2_ttf -lSDL2_gfx -lSDL2_image -lSDL2 -lfreetype -lbz2 -lharfbuzz -lEGL -lglapi -ldrm_nouveau -lSplash -lcurl -lminIni -lmpg123 -lSQLite -lpng -ljpeg -lwebp -lzzip -lz -lnx
-LIBDIRS		:=	$(PORTLIBS) $(LIBNX) $(CURDIR)/libs/Aether $(CURDIR)/libs/json $(CURDIR)/../Common/libs/minIni $(CURDIR)/../../sqlite-nx $(CURDIR)/../Common/libs/splash $(CURDIR)/libs/TagLib
+LIBS		:=  -lAether -lTag -lSDL2_ttf -lSDL2_gfx -lSDL2_image -lSDL2 -lfreetype -lbz2 -lharfbuzz -lEGL -lglapi -ldrm_nouveau -lSplash -lpiano -lcurl -lmbedtls -lmbedx509 -lmbedcrypto -ljson-c -lminIni -lmpg123 -lSQLite -lpng -ljpeg -lwebp -lzzip -lz -lnx
+LIBDIRS		:=	$(PORTLIBS) $(LIBNX) $(CURDIR)/libs/Aether $(CURDIR)/libs/json $(CURDIR)/../Common/libs/minIni $(CURDIR)/../../sqlite-nx $(CURDIR)/../../libpiano-nx $(CURDIR)/../Common/libs/splash $(CURDIR)/libs/TagLib
 
 #---------------------------------------------------------------------------------
 # Options for .nacp information
@@ -51,7 +51,7 @@ ICON 		:= 	icon.jpg
 OBJDIR		:=	$(BUILD)/objs
 DEPDIR		:=	$(BUILD)/deps
 ARCH		:=	-march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -fPIE
-INCLUDE		:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) $(foreach dir,$(LIBDIRS),-I$(dir)/include)
+INCLUDE		:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) $(foreach dir,$(LIBDIRS),-I$(dir)/include) -I$(PORTLIBS)/include/json-c
 ASFLAGS		:=	-g $(ARCH)
 LD			:=	$(CXX)
 LDFLAGS		:=	-specs=$(DEVKITPRO)/libnx/switch.specs -g $(ARCH)
